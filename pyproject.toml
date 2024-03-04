@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "team4-project"
+version = "0.1.0"
+description = "This is a web api project for CS3321 that provides weather data."
+authors = ["Ralph McHugh <mchuralp@isu.edu, William Forde <williamforde@isu.edu>, Jeongeun \"Jane\" Lee <jeongeunlee@isu.edu>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.2"
+black = "^24.2.0"
+pudb = "^2024.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
