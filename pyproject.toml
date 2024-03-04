@@ -5,9 +5,17 @@ description = "This is a web api project for CS3321 that provides weather data."
 authors = ["Ralph McHugh <mchuralp@isu.edu, William Forde <williamforde@isu.edu>, Jeongeun \"Jane\" Lee <jeongeunlee@isu.edu>"]
 license = "Apache 2.0"
 readme = "README.md"
+packages = [
+    { include = "src", from = "." }
+]
+
+[tool.poetry.scripts]
+start = "src.weather_api:run"
+
 
 [tool.poetry.dependencies]
 python = "^3.11"
+quart = "^0.19.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
