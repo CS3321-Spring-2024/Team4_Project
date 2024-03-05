@@ -6,7 +6,7 @@ app = Quart(__name__)
 async def example():
     return jsonify(["a", "b"])
 
-@app.get("/wind")
+@app.get("/precipitation")
 async def example():
     return jsonify(["a", "b"])
 
