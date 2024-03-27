@@ -33,3 +33,15 @@ def readOzone():
     dirtyValue = sensors.senseOzone()
     cleanValue = math.ceil(dirtyValue)
     return cleanValue
+
+def readWindDirection():
+    dirtyValue = sensors.senseWindDirection()
+    directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"]
+    index = math.floor((dirtyValue + 22.5) / 45) % 9
+    cleanValue = directions[index]
+    return cleanValue
+
+def readWindSpeed():
+    dirtyValue = sensors.senseWindSpeed()
+    cleanValue = math.ceil(dirtyValue)
+    return cleanValue

@@ -36,3 +36,12 @@ def senseOzone():
     dataContaminationAmount = rand.random()
     ozone = rand.triangular(0, 300, 10) + dataContaminationAmount
     return ozone
+
+# Wind data
+def senseWindDirection():
+    windDirection = rand.randint(0, 360)
+    return windDirection
+
+def senseWindSpeed():
+    windSpeed = rand.triangular(0, 20, 5)
+    return windSpeed
