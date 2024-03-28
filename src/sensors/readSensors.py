@@ -45,3 +45,15 @@ def readWindSpeed():
     dirtyValue = sensors.senseWindSpeed()
     cleanValue = math.ceil(dirtyValue)
     return cleanValue
+
+
+# precipitation
+def readPrecipitationType():
+    dirtyType = sensors.sensePrecipitationType()
+    cleanType = dirtyType.strip().lower()
+    return cleanType
+
+def readPrecipitationAmount():
+    dirtyAmount = sensors.sensePrecipitationAmount()
+    cleanAmount = max(0, dirtyAmount)
+    return cleanAmount

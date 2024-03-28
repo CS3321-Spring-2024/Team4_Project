@@ -45,3 +45,14 @@ def senseWindDirection():
 def senseWindSpeed():
     windSpeed = rand.triangular(0, 20, 5)
     return windSpeed
+
+
+# precipitation
+def sensePrecipitationType():
+    precipitation_types = ["rain", "snow"]
+    precipitation_type = rand.choice(precipitation_types)
+    return precipitation_type
+
+def sensePrecipitationAmount():
+    precipitation = rand.triangular(0, 10, 0)
+    return precipitation
