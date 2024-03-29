@@ -34,12 +34,14 @@ def readOzone():
     cleanValue = math.ceil(dirtyValue)
     return cleanValue
 
+
 def readWindDirection():
     dirtyValue = sensors.senseWindDirection()
     directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"]
     index = math.floor((dirtyValue + 22.5) / 45) % 9
     cleanValue = directions[index]
     return cleanValue
+
 
 def readWindSpeed():
     dirtyValue = sensors.senseWindSpeed()
@@ -52,6 +54,7 @@ def readPrecipitationType():
     dirtyType = sensors.sensePrecipitationType()
     cleanType = dirtyType.strip().lower()
     return cleanType
+
 
 def readPrecipitationAmount():
     dirtyAmount = sensors.sensePrecipitationAmount()

@@ -37,10 +37,12 @@ def senseOzone():
     ozone = rand.triangular(0, 300, 10) + dataContaminationAmount
     return ozone
 
+
 # Wind data
 def senseWindDirection():
     windDirection = rand.randint(0, 360)
     return windDirection
+
 
 def senseWindSpeed():
     windSpeed = rand.triangular(0, 20, 5)
@@ -52,6 +54,7 @@ def sensePrecipitationType():
     precipitation_types = ["rain", "snow"]
     precipitation_type = rand.choice(precipitation_types)
     return precipitation_type
+
 
 def sensePrecipitationAmount():
     precipitation = rand.triangular(0, 10, 0)
