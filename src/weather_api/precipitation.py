@@ -16,4 +16,3 @@ def setPrecipitationArray():
 
 def getPrecipitationArray():
     return precipitationArray
-
