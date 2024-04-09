@@ -8,9 +8,14 @@ async def example():
     return jsonify(["a", "b"])
 
 
-@app.get("/precipitation")
-async def example():
+@app.get("/wind")
+async def wind():
     return jsonify(["a", "b"])
+
+
+@app.get("/precipitation")
+async def precipitation():
+    return jsonify(["30% Rain"])
 
 
 @app.post("/echo")
