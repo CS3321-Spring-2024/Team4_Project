@@ -35,6 +35,12 @@ def readOzone():
     return cleanValue
 
 
+def readCarbonMonoxide():
+    dirtyValue = sensors.senseCarbonMonoxide()
+    cleanValue = math.ceil(dirtyValue)
+    return cleanValue
+
+
 def readWindDirection():
     dirtyValue = sensors.senseWindDirection()
     directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"]

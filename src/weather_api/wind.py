@@ -22,3 +22,5 @@ def setWindArray():
 
 def getWindArray():
     return windArray
+
+
