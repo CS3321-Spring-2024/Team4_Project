@@ -1,27 +1,26 @@
 from quart import Quart, jsonify, request
 
+import precipitation as precipitation
+import wind as wind
+import airQualityIndex as aqi
+
 app = Quart(__name__)
 
 
-@app.get("/example")
-async def example():
-    return jsonify(["a", "b"])
-
-
 @app.get("/wind")
-async def wind():
-    return jsonify(["a", "b"])
+async def getWind():
+    return jsonify(HourlyWind=wind.getWindArray())
 
 
 @app.get("/precipitation")
-async def precipitation():
-    return jsonify(["30% Rain"])
+async def getPrecipitation():
+    return jsonify(HourlyPrecipitation=precipitation.getPrecipitationArray())
 
 
-@app.post("/echo")
-async def echo():
-    data = await request.get_json()
-    return {"input": data, "extra": True}
+# later on I want this to return either full or composite based on a query param
+@app.get("/aqi")
+async def getAQI():
+    return jsonify(HourlyAQI=aqi.getPollutantsArray())
 
 
 def run() -> None:
