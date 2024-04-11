@@ -1,5 +1,8 @@
 import math as math
-import sensorFakes as sensors
+import sys
+
+sys.path.append("../")
+import sensors.sensorFakes as sensors
 
 # the idea here is that to switch to real sensors we just change the library name
 # and the rest of the code should work without change
