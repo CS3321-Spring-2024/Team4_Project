@@ -1,6 +1,8 @@
 # this module is used to calculate the air quality index based on the concentration of pollutants
 # the pollutants are PM2.5, PM10, CO, NO2, SO2, O3
-from ..sensors import readSensors as sensors
+
+
+from src.sensors import readSensors as sensors
 
 # [PM2.5, PM10, CO, NO2, SO2, O3]
 # pollutantsArray[7][2] = Carbon Monoxide reading at 12Am

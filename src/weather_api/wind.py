@@ -2,10 +2,9 @@
 # it should only be called by the forecast.py module
 
 # had to add the sensors directory to the path so that the readSensors module could be imported
-import sys
 
-sys.path.append("../sensors")
-import readSensors as sensors
+
+from src.sensors import readSensors as sensors
 
 windArray = [[None, None] for i in range(24)]
 
@@ -22,5 +21,3 @@ def setWindArray():
 
 def getWindArray():
     return windArray
-
-

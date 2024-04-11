@@ -1,14 +1,11 @@
 # This is the precipitation module.
 # It should only be called from the forecast.py module
 
-# from ..sensors import readSensors as sensors
 
-import sys
-
-sys.path.append("../")
-import sensors.readSensors as sensors
+from src.sensors import readSensors as sensors
 
 precipitationArray = [[None, None] for _ in range(24)]
+
 len_pre = len(precipitationArray)
 
 

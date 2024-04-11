@@ -1,8 +1,8 @@
 from quart import Quart, jsonify, request
 
-import precipitation as precipitation
-import wind as wind
-import airQualityIndex as aqi
+from src.weather_api import precipitation as precipitation
+from src.weather_api import wind as wind
+from src.weather_api import airQualityIndex as aqi
 
 app = Quart(__name__)
 
