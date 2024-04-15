@@ -79,8 +79,11 @@ def calculateCompositePollutants():
             pollutantsArray[i][0] + pollutantsArray[i][1]
         ) / 2
         pollutantsCompositeArray[i][1] = (
-            pollutantsArray[i][3] + pollutantsArray[i][4] + pollutantsArray[i][5]
-        ) / 3
+            pollutantsArray[i][2]
+            + pollutantsArray[i][3]
+            + pollutantsArray[i][4]
+            + pollutantsArray[i][5]
+        ) / 4
         pollutantsCompositeArray[i][2] = (
             pollutantsCompositeArray[i][0] + pollutantsCompositeArray[i][1]
         ) / 2
