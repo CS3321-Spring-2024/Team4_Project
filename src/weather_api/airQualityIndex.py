@@ -61,8 +61,6 @@ pollutantsCompositeArray = [
     [0.0, 0.0, 0.0],
 ]
 
-pollutantsInitialized = False
-
 
 # Private functions
 def buildPollutantsArray():
@@ -89,17 +87,15 @@ def calculateCompositePollutants():
 
 
 def initializePollutants():
-    if not pollutantsInitialized:
+    if pollutantsArray[0][0] == 0:
         buildPollutantsArray()
         calculateCompositePollutants()
-        pollutantsInitialized = True
 
 
 # Public functions
 def reinitializePollutants():
     buildPollutantsArray()
     calculateCompositePollutants()
-    pollutantsInitialized = True
 
 
 def getPollutantsArray():
