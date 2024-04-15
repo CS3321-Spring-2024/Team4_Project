@@ -1,4 +1,5 @@
 import math as math
+import random as rand
 
 from src.sensors import sensorFakes as sensors
 # the idea here is that to switch to real sensors we just change the library name
@@ -63,6 +64,8 @@ def readPrecipitationType():
 
 
 def readPrecipitationAmount():
-    dirtyAmount = sensors.sensePrecipitationAmount()
-    cleanAmount = max(0, dirtyAmount)
+    #dirtyAmount = sensors.sensePrecipitationAmount()
+    #cleanAmount = max(0, dirtyAmount)
+    precipitation = rand.triangular(0, 10, 0)
+    cleanAmount = max(0, int(precipitation))
     return cleanAmount
