@@ -14,6 +14,8 @@ RUN apt update \
   && ln -sf /bin/bash /bin/sh \ 
   && curl -sSL ${POETRY_DOWNLOAD} | python3 - --version ${POETRY_VERSION}
 
+# copy in key for ssh access to github
+
 WORKDIR /tmp/
 RUN git clone ${REPO_URL}
 WORKDIR  /tmp/Team4_Project
