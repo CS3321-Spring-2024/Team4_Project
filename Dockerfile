@@ -1,8 +1,8 @@
 # python 3.11 image
 FROM python:3.11-slim-bookworm
 
-ARG REPO_URL = "https://github.com/CS3321-Spring-2024/Team4_Project.git"
-ARG BRANCH = "main" # This should be an env var for the CI/CD pipeline
+ARG REPO_URL="https://github.com/CS3321-Spring-2024/Team4_Project.git"
+ARG BRANCH="main"
 ARG POETRY_VERSION=1.8.2
 ARG POETRY_DOWNLOAD=https://install.python-poetry.org
 ENV PATH="$PATH:/root/.local/bin"
