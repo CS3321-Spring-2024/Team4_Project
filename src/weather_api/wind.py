@@ -6,10 +6,12 @@ from src.sensors import readSensors as sensors
 windArray = [[None, None] for i in range(24)]
 isArrayFilled = False
 
+
 def fillWindArray():
     for i in range(len(windArray)):
         windArray[i][0] = sensors.readWindDirection()
         windArray[i][1] = sensors.readWindSpeed()
+
 
 def validateWindArray(arrayFilled):
     if not arrayFilled:
@@ -18,6 +20,7 @@ def validateWindArray(arrayFilled):
     else:
         arrayFilled = True
     return arrayFilled
+
 
 def getWindArray():
     validateWindArray(isArrayFilled)
