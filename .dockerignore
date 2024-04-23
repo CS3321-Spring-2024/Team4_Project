@@ -1,0 +1,11 @@
+*README.md
+*.gitignore 
+*.git 
+
+*__pycache__
+*.pytest_cache
+*.github 
+*LICENSE
+
+
+
