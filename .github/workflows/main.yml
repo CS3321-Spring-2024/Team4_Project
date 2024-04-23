@@ -1,0 +1,48 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    environment: development-scratch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build Docker image
+        run: |
+          docker build -t figureofstick/team4_weather_api:latest .
+      
+      - name: Login to Docker registry
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      
+      - name: Push Docker image to registry
+        run: |
+          docker push figureofstick/team4_weather_api:latest
+  
+  deploy:
+    needs: build
+    environment: development-scratch
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into AWS EC2 instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_EC2_IP_ADDRESS }}
+          username: ${{ secrets.AWS_EC2_USERNAME }}
+          password: ${{ secrets.AWS_EC2_PASSWORD }}
+          script: |
+            
+            # Pull Docker image from registry
+            echo "${{ secrets.AWS_EC2_PASSWORD }}" | sudo -S docker pull figureofstick/team4_weather_api:latest
+            
+            # Run Docker container
+            echo "${{ secrets.AWS_EC2_PASSWORD }}" | sudo -S docker run -d -p 80:80 figureofstick/team4_weather_api:latest
+            echo "${{ secrets.AWS_EC2_PASSWORD }}" | sudo -S docker ps
