@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    environment: development-scratch
+    environment: Scratch-Dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -36,8 +36,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.AWS_EC2_IP_ADDRESS }}
-          username: ${{ secrets.AWS_EC2_USERNAME }}
-          password: ${{ secrets.AWS_EC2_PASSWORD }}
+          username: ${{ secrets.AWS_EC2_USER_NAME }}
+          password: ${{ secrets.AWS_EC2_DOCKER_SERVICE_PASSWORD }}
           script: |
             
             # Pull Docker image from registry
