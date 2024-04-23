@@ -41,8 +41,8 @@ jobs:
           script: |
             
             # Pull Docker image from registry
-            echo "${{ secrets.AWS_EC2_PASSWORD }}" | sudo -S docker pull figureofstick/team4_weather_api:latest
+            echo "${{ secrets.AWS_EC2_DOCKER_SERVICE_PASSWORD }}" | sudo -S docker pull figureofstick/team4_weather_api:latest
             
             # Run Docker container
-            echo "${{ secrets.AWS_EC2_PASSWORD }}" | sudo -S docker run -d -p 80:80 figureofstick/team4_weather_api:latest
-            echo "${{ secrets.AWS_EC2_PASSWORD }}" | sudo -S docker ps
+            echo "${{ secrets.AWS_EC2_DOCKER_SERVICE_PASSWORD }}" | sudo -S docker run -d -p 80:80 figureofstick/team4_weather_api:latest
+            echo "${{ secrets.AWS_EC2_DOCKER_SERVICE_PASSWORD }}" | sudo -S docker ps
