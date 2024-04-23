@@ -21,5 +21,11 @@ WORKDIR  /tmp/Team4_Project
 
 RUN poetry install
 
-WORKDIR /tmp/Team4_Project/tests
-RUN poetry run start
+EXPOSE 80
+
+#CMD ["python", "/tmp/Team4_Project/src/weather_api/__init__.py"]
+
+
+
+
+
