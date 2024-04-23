@@ -23,7 +23,7 @@ RUN poetry install
 
 EXPOSE 80
 
-CMD ["python", "/tmp/Team4_Project/src/weather_api/__init__.py"]
+#CMD ["python", "/tmp/Team4_Project/src/weather_api/__init__.py"]
 
 
 
