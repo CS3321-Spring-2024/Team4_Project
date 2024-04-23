@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.11.8'
 
       - name: Install Poetry
         run: |
@@ -78,7 +78,8 @@ jobs:
       - name: SSH into AWS EC2 instance
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.AWS_EC2_IP_ADDRESS }}
+          #host: ${{ secrets.AWS_EC2_IP_ADDRESS }}
+          host: 34.220.171.27
           username: ${{ secrets.AWS_EC2_USER_NAME }}
           password: ${{ secrets.AWS_EC2_DOCKER_SERVICE_PASSWORD }}
           script: |
