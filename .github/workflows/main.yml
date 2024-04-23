@@ -6,6 +6,49 @@ on:
       - main
 
 jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 - --version=1.8.2
+
+      - name: Configure Poetry
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          poetry install
+
+      - name: Install coverage.py
+        run: |
+          poetry add coverage --group=dev
+
+      - name: Run tests with coverage
+        run: |
+          poetry run coverage run -m pytest
+          poetry run coverage report
+          poetry run coverage lcov
+
+      - name: Check coverage percentage
+        uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
+        with:
+          path: ./coverage.lcov
+          min_coverage: 80
+          #exclude: '**/**/__init__.py tests/**'
+
+
+
+
   build:
     environment: Scratch_Dev
     runs-on: ubuntu-latest
@@ -33,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SSH into AWS EC2 instance
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.AWS_EC2_IP_ADDRESS }}
           username: ${{ secrets.AWS_EC2_USER_NAME }}
@@ -41,6 +84,8 @@ jobs:
           script: |
             # Dummy code
             whoami
+            # Remove old container
+            docker rm -f team4_weather_api || true
             # Pull Docker image from registry
             docker pull figureofstick/team4_weather_api:latest
             
