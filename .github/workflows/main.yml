@@ -44,7 +44,7 @@ jobs:
         with:
           path: ./coverage.lcov
           min_coverage: 80
-          #exclude: '**/**/__init__.py tests/**'
+          exclude: '**/**/__init__.py tests/**'
 
 
 
@@ -72,14 +72,13 @@ jobs:
   
   deploy:
     needs: build
-    environment: development-scratch
+    environment: Scratch_Dev
     runs-on: ubuntu-latest
     steps:
       - name: SSH into AWS EC2 instance
         uses: appleboy/ssh-action@v1.0.3
         with:
-          #host: ${{ secrets.AWS_EC2_IP_ADDRESS }}
-          host: 34.220.171.27
+          host: ${{ secrets.AWS_EC2_IP_ADDRESS }}
           username: ${{ secrets.AWS_EC2_USER_NAME }}
           password: ${{ secrets.AWS_EC2_DOCKER_SERVICE_PASSWORD }}
           script: |
