@@ -50,6 +50,7 @@ jobs:
 
 
   build:
+    needs: coverage
     environment: Scratch_Dev
     runs-on: ubuntu-latest
     steps:
