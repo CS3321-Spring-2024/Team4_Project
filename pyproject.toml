@@ -16,6 +16,7 @@ start = "src.weather_api:run"
 [tool.poetry.dependencies]
 python = "^3.11"
 quart = "^0.19.4"
+pytest-asyncio = "^0.23.6"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.2"
