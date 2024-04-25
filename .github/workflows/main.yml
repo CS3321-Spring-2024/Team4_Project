@@ -83,10 +83,10 @@ jobs:
           username: ${{ secrets.AWS_EC2_USER_NAME }}
           password: ${{ secrets.AWS_EC2_DOCKER_SERVICE_PASSWORD }}
           script: |
-            # Dummy code
-            whoami
+            
             # Remove old container
-            docker rm -f team4_weather_api || true
+            docker stop $(docker ps -q)
+            docker rm -vf $(docker ps -q) || true
             # Pull Docker image from registry
             docker pull figureofstick/team4_weather_api:latest
             
