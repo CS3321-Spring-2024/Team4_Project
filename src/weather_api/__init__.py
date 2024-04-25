@@ -4,6 +4,8 @@ from src.weather_api import precipitation as precipitation
 from src.weather_api import wind as wind
 from src.weather_api import airQualityIndex as aqi
 
+from src.weather_api import sunStatus as sun
+
 app = Quart(__name__)
 
 
@@ -21,6 +23,11 @@ async def getPrecipitation():
 @app.get("/aqi")
 async def getAQI():
     return jsonify(HourlyAQI=aqi.getPollutantsArray())
+
+
+@app.get("/sun")
+async def getSun():
+    return jsonify(SunStatus=sun.sunStatus())
 
 
 def run() -> None:
